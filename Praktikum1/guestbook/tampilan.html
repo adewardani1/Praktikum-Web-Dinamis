@@ -1,15 +1,17 @@
 <html>
-
 <head>
+    <!-- Title Web -->
     <title>My Guest Book</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 
 <body>
+    <!-- Judul Buku Tamu -->
     <div align="center"><strong>
             <font size="6" face="Courier New, Courier,mono">BUKU
                 TAMU </font>
         </strong></div>
+    <!-- Output Form dengan method POST -->
     <form name="form1" method="post" action="proses.php">
         <table width="58%" border="0" align="center">
             <tr>
@@ -25,6 +27,7 @@
                 <td><input name="email" type="text" id="email"></td>
             </tr>
             <tr>
+                <!-- Select Status -->
                 <td>Status</td>
                 <td><select name="status" id="status">
                         <option>Menikah</option>
@@ -36,12 +39,14 @@
                 <td><textarea name="komentar" id="komentar"></textarea></td>
             </tr>
             <tr>
+                <!-- Bagian Tombol Submit -->
                 <td>&nbsp;</td>
                 <td><input type="submit" name="Submit" value="Kirim"><input type="reset" name="Submit2" value="Batal">
                 </td>
             </tr>
         </table>
     </form>
+    <!-- Liaht Buku Tamu dengan mengarahkan ke URL lihat.php -->
     <div align="center"><strong><a href="lihat.php">::Lihat Buku
                 Tamu::</a></strong></div>
 </body>

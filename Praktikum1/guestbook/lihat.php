@@ -1,7 +1,9 @@
 <?php
-echo "<head><title>My Guest Book</title></head>";
-$fp = fopen("guestbook.txt", "r");
+echo "<head><title>My Guest Book</title></head>";   //Output title
+$fp = fopen("guestbook.txt", "r");  //Menginisialisasi dan membuka (r+) file guestbook.txt
 echo "<table border=0>";
+
+//mengeluarkan isi dari file dengan perulangan while
 while ($isi = fgets($fp, 80)) {
     $pisah = explode("|", $isi);
     echo "<tr><td>Nama </td><td>: $pisah[0]</td></tr>";
@@ -12,4 +14,6 @@ while ($isi = fgets($fp, 80)) {
 <tr><td>&nbsp;<hr></td><td>&nbsp;<hr></td></tr>";
 }
 echo "</table>";
+
+//Mengarah ke url tampilan.html
 echo "<a href=tampilan.html> Klik Disini </a>Isi Form Buku Tamu";
