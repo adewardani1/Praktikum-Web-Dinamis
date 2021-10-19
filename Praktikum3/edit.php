@@ -11,8 +11,7 @@ if (isset($_POST['update'])) {
     $alamat = $_POST['alamat'];
     $tgllhr = $_POST['tgllhr'];
     // update user data
-    $result = mysqli_query($con, "UPDATE mahasiswa SET 
-    nama='$nama',jkel='$jkel',alamat='$alamat',tgllhr='$tgllhr' WHERE nim='$nim'");
+    $result = mysqli_query($con, "UPDATE mahasiswa SET nama='$nama',jkel='$jkel',alamat='$alamat',tgllhr='$tgllhr' WHERE nim='$nim'");
 
     // Redirect to homepage to display updated user in list
     header("Location: index.php");
@@ -23,10 +22,8 @@ if (isset($_POST['update'])) {
 // Display selected user data based on id
 // Getting id from url
 $nim = $_GET['nim'];
-
 // Fetech user data based on id
-$result = mysqli_query($con, "SELECT * FROM mahasiswa WHERE nim='$nim");
-
+$result = mysqli_query($con, "SELECT * FROM mahasiswa WHERE nim='$nim'");
 while ($user_data = mysqli_fetch_array($result)) {
     $nim = $user_data['nim'];
     $nama = $user_data['nama'];
