@@ -1,7 +1,8 @@
 <?php
-// Create database connection using config file
+// include database connection
 include_once("koneksi.php");
-// Fetch all users data from database
+
+// Fetch all mahasiswa / mengammbil semua data mahasiswa dari database
 $result = mysqli_query($con, "SELECT * FROM mahasiswa ");
 ?>
 
@@ -28,6 +29,8 @@ $result = mysqli_query($con, "SELECT * FROM mahasiswa ");
         </tr>
 
         <?php
+
+        // menampilkan seluruh isi database
         while ($user_data = mysqli_fetch_array($result)) {
             echo "<tr>";
             echo "<td>" . $user_data['nim'] . "</td>";

@@ -2,27 +2,30 @@
 //include database connection file
 include_once("koneksi.php");
 
-// Check if form is submitted for user update, then redirect to homepage after update
+// memeriksa form yang dikirimkan oleh pengguna, lalu dialihkan ke index.php setelah diperbarui
 if (isset($_POST['update'])) {
 
+    // menyimpan data kedalam variabel
     $nim = $_POST['nim'];
     $nama = $_POST['nama'];
     $jkel = $_POST['jkel'];
     $alamat = $_POST['alamat'];
     $tgllhr = $_POST['tgllhr'];
-    // update user data
+
+    // query SQL untuk updaet data
     $result = mysqli_query($con, "UPDATE mahasiswa SET nama='$nama',jkel='$jkel',alamat='$alamat',tgllhr='$tgllhr' WHERE nim='$nim'");
 
-    // Redirect to homepage to display updated user in list
+    // mengalihkan kehalaman index.php
     header("Location: index.php");
 }
 ?>
 
 <?php
-// Display selected user data based on id
-// Getting id from url
+
+// nenampilkan data pengguna berdasarkan nim
+/// mengambil data nim lalu memasukkan kedalam variabel
 $nim = $_GET['nim'];
-// Fetech user data based on id
+// Fetech user data / mengeluarkan data berdasarkan nim
 $result = mysqli_query($con, "SELECT * FROM mahasiswa WHERE nim='$nim'");
 while ($user_data = mysqli_fetch_array($result)) {
     $nim = $user_data['nim'];
@@ -45,6 +48,8 @@ while ($user_data = mysqli_fetch_array($result)) {
 <body>
     <a href="index.php">Home</a>
     <br /><br />
+
+    <!-- Form untuk update data menggunakan method POST -->
     <form name="update_mahasiswa" method="post" action="edit.php">
         <table border="0">
             <tr>

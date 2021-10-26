@@ -11,6 +11,7 @@
     <a href="index.php">Go to Home</a>
     <br><br>
 
+    <!-- form untuk insert data kedalam tabel menggunakan method POST -->
     <form action="tambah.php" method="post" name="form1">
         <table width="25%" border="0">
             <tr>
@@ -41,7 +42,7 @@
     </form>
 
     <?php
-    // Check If form submitted, insert form data into users table
+    // memerika apakah form telah disubmit, kemudian menyisipkan data pengguna ke dalam tabel
     if (isset($_POST['Submit'])) {
         $nim = $_POST['nim'];
         $nama = $_POST['nama'];
@@ -51,9 +52,9 @@
 
         // include database connection file
         include_once("koneksi.php");
-        // Insert user data into table
+        // query SQL untuk insert data ke dalam tabel Mysql
         $result = mysqli_query($con, "INSERT INTO mahasiswa(nim,nama,jkel,alamat,tgllhr) VALUES('$nim','$nama','$jkel','$alamat','$tgllhr')");
-        // Show message when user added
+        // menampilkan notif ketika data berhasil disimpan 
         echo "Data berhasil disimpan. <a href='index.php'>View Users</a>";
     }
     ?>
