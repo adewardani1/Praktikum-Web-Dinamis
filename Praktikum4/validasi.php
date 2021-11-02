@@ -18,6 +18,7 @@ include_once("koneksi.php");
     $namaErr = $emailErr = $genderErr = $websiteErr = "";
     $nama = $email = $gender = $comment = $website = "";
 
+    //Sintaks untuk melakukan validasi
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["nama"])) {
             $namaErr = "Nama harus diisi";
