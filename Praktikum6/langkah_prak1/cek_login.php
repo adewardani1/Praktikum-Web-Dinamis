@@ -15,6 +15,7 @@ if ($_POST["captcha_code"] == $_SESSION["captcha_code"]) {
         echo "USER BERHASIL LOGIN<br>";
         echo "id user =", $_SESSION['iduser'], "<br>";
         echo "password=", $_SESSION['passuser'], "<br>";
+        echo "status=", $r['status'], "<br>";
         echo "<a href=logout.php><b>LOGOUT</b></a></center>";
     } else {
         echo "<center>Login gagal! username & password tidak benar<br>";
