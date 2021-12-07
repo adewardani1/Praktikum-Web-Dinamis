@@ -17,16 +17,19 @@ if (isset($_GET['cari'])) {
     <tr>
         <th>No</th>
         <th>NIM</th>
+        <th>Nama Mahasiswa</th>
         <th>Kode MK</th>
+        <th>Nama Matkul</th>
         <th>Nilai</th>
     </tr>
     <?php
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $sql = "select * from KHS where nim like'%" . $cari . "%'";
+        $sql = "select * from KHS INNER JOIN mahasiswa ON khs.nim = mahasiswa.nim INNER JOIN matakuliah ON khs.kodeMK = matakuliah.kode 
+                where mahasiswa.nim like'%" . $cari . "%' ";
         $tampil = mysqli_query($con, $sql);
     } else {
-        $sql = "select * from KHS";
+        $sql = "SELECT * from KHS INNER JOIN mahasiswa ON khs.nim = mahasiswa.nim INNER JOIN matakuliah ON khs.kodeMK = matakuliah.kode";
         $tampil = mysqli_query($con, $sql);
     }
     $no = 1;
@@ -35,7 +38,9 @@ if (isset($_GET['cari'])) {
         <tr>
             <td><?php echo $no++; ?></td>
             <td><?php echo $r['NIM']; ?></td>
+            <td><?php echo $r['nama']; ?></td>
             <td><?php echo $r['kodeMK']; ?></td>
+            <td><?php echo $r['namaMK']; ?></td>
             <td><?php echo $r['nilai']; ?></td>
         </tr>
     <?php } ?>
